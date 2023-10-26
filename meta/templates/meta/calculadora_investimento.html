@@ -1,0 +1,53 @@
+{% comment %} Camada de visualização dos Dados: Por onde o usuário vai visualizar e interagir com os dados {% endcomment %}
+{% csrf_token %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSA5v5H5F5uW6C5OjF5" crossorigin="anonymous">
+    
+    <title>Meta Financeira Calculadora</title>
+</head>
+<body>
+    <header class="main-header container">
+        <div class="main-header container">
+            <i class="fas fa-calculator"></i>
+            <h1>Meta Financeira</h1>
+            <h2> a sua calculadora de economias</h2>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Calculadora de Investimento</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group">
+                {{ form.valor_economia.label_tag }}
+                {{ form.valor_economia }}
+                {{ form.valor_economia.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.valor_mensal.label_tag }}
+                {{ form.valor_mensal }}
+                {{ form.valor_mensal.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.taxa_juros.label_tag }}
+                {{ form.taxa_juros }}
+                {{ form.taxa_juros.errors }}
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+        
+        {% if resultado %}
+            <h3>Resultado:</h3>
+            {{ resultado }}
+        {% endif %}
+    </div>
+
+</body>
+</html>
