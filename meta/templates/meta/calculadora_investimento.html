@@ -7,13 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSA5v5H5F5uW6C5OjF5" crossorigin="anonymous">
-    
-    <title>Meta Financeira Calculadora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" integrity="sha512-sVSECYdnRMezwuq5uAjKQJEcu2wybeAPjU4VJQ9pCRcCY4pIpIw4YMHIOQ0CypfwHRvdSPbH++dA3O4Hihm/LQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" integrity="sha512-tk4nGrLxft4l30r9ETuejLU0a3d7LwMzj0eXjzc16JQj+5U1IeVoCuGLObRDc3+eQMUcEQY1RIDPGvuA7SNQ2w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;500;700&family=Nunito:wght@300;500;700&family=Sometype+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+        
+    <title></title>
 </head>
 <body>
-    <header class="main-header container">
-        <div class="main-header container">
+    <header class="main-header ">
+        <div class="main-header ">
             <i class="fas fa-calculator"></i>
             <h1>Meta Financeira</h1>
             <h2> a sua calculadora de economias</h2>
@@ -21,33 +26,41 @@
     </header>
 
     <div class="container">
-        <h2>Calculadora de Investimento</h2>
-        <form method="post">
+        <form method="post" class="form">
             {% csrf_token %}
             {{ form.non_field_errors }}
             <div class="form-group">
-                {{ form.valor_economia.label_tag }}
+                <label class="title_form">
+                    Valor que desejo resgatar:
+                </label>                
                 {{ form.valor_economia }}
                 {{ form.valor_economia.errors }}
             </div>
             <div class="form-group">
-                {{ form.valor_mensal.label_tag }}
+                <label class="title_form">
+                    Valor disponível para economizar por mês:
+                </label>                
                 {{ form.valor_mensal }}
                 {{ form.valor_mensal.errors }}
             </div>
             <div class="form-group">
-                {{ form.taxa_juros.label_tag }}
+                <label class="title_form">
+                    Taxa de rendimento mensal:
+                </label>
                 {{ form.taxa_juros }}
                 {{ form.taxa_juros.errors }}
             </div>
             <button type="submit">Calcular</button>
         </form>
-        
+    </div>    
         {% if resultado %}
+            <div class="resultado"> 
             <h3>Resultado:</h3>
             {{ resultado }}
+            </div>
         {% endif %}
-    </div>
-
+    <footer>
+        <h1>Projeto realizado por Priscilla Trevizan</h1>
+    </footer>
 </body>
 </html>

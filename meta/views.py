@@ -22,11 +22,11 @@ class Home(View):
             if taxa_juros is not None and taxa_juros > 0:
                 # Cálculo com taxa de juros
                 meses = calcular_resultado_com_taxa(valor_economia, valor_mensal, taxa_juros)
-                resultado = f"Com uma taxa de juros de {taxa_juros}%, você levará {meses} meses para economizar R${valor_economia:.2f}."
+                resultado = f"Com uma taxa de rendimento de {taxa_juros}%, você levará aproximadamente {meses} meses para economizar R${valor_economia:.2f}."
             else:
                 # Cálculo sem taxa de juros
                 meses = calcular_resultado_sem_taxa(valor_economia, valor_mensal)
-                resultado = f"Sem taxa de juros, você levará {meses} meses para economizar R${valor_economia:.2f}."
+                resultado = f"Sem aplicar em um local com taxa de rendimento, você levará aproximadamente {meses} meses para economizar R${valor_economia:.2f}."
 
         return render(request, self.template_name, {'form': form, 'resultado': resultado})
 
@@ -45,4 +45,5 @@ def calcular_resultado_com_taxa(valor_economia, valor_mensal, taxa_juros):
 def calcular_resultado_sem_taxa(valor_economia, valor_mensal):
     # Cálculo sem taxa de juros
     meses = valor_economia / valor_mensal
-    return int(meses)
+    return meses
+
