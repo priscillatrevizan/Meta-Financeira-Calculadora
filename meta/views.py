@@ -31,7 +31,6 @@ class Home(View):
         return render(request, self.template_name, {'form': form, 'resultado': resultado})
 
 def calcular_resultado_com_taxa(valor_economia, valor_mensal, taxa_juros):
-    # Cálculo com taxa de juros
     meses = 0
     resultado = valor_mensal
 
@@ -43,7 +42,6 @@ def calcular_resultado_com_taxa(valor_economia, valor_mensal, taxa_juros):
     return meses
 
 def calcular_resultado_sem_taxa(valor_economia, valor_mensal):
-    # Cálculo sem taxa de juros
     meses = valor_economia / valor_mensal
     return meses
 
