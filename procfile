@@ -1,5 +1,4 @@
 web: gunicorn projeto.wsgi:application
-v
 
 
 
