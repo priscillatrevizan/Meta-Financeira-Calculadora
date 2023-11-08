@@ -53,12 +53,16 @@
             <button type="submit">Calcular</button>
         </form>
     </div>    
-        {% if resultado %}
-            <div class="resultado"> 
-            <h3>Resultado:</h3>
-            {{ resultado }}
-            </div>
-        {% endif %}
+{% if resultado %}
+    <div class="resultado"> 
+    <h3>Resultado:</h3>
+    {{ resultado }}
+    {% if meses %}
+        <p>Tempo estimado para atingir a meta: {{ meses }} meses</p>
+    {% endif %}
+    </div>
+{% endif %}
+
     <footer>
         <h3>Projeto realizado por Priscilla Trevizan</h3>
     </footer>
