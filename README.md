@@ -8,6 +8,8 @@ Para o desenvolvimento deste projeto, foi utilizado Python com o framework Djang
 
 ## Funcionalidades
 
+<img src="./meta/static/gif/uso.gif">
+
 ### Definição da Meta Financeira
 Os usuários podem inserir o valor da meta financeira que desejam atingir, representando o montante que desejam economizar para seu objetivo financeiro.
 
