@@ -21,11 +21,9 @@ class Home(View):
             taxa_juros = form.cleaned_data['taxa_juros']
 
             if taxa_juros is not None and taxa_juros > 0:
-                # Cálculo com taxa de juros
                 meses = calcular_resultado_com_taxa(valor_economia, valor_mensal, taxa_juros)
                 resultado = f"Com uma taxa de rendimento de {taxa_juros}% ao mês, você levará aproximadamente {meses} meses para economizar R${valor_economia:.2f}."
             else:
-                # Cálculo sem taxa de juros
                 meses = calcular_resultado_sem_taxa(valor_economia, valor_mensal)
                 resultado = f"Sem aplicar em um local com taxa de rendimento, você levará aproximadamente {meses} meses para economizar R${valor_economia:.2f}."
 
@@ -33,20 +31,17 @@ class Home(View):
 
 def calcular_resultado_com_taxa(valor_desejado, valor_mensal, taxa_juros):
     if taxa_juros <= 0:
-        return valor_desejado // valor_mensal  # Sem taxa de juros, tempo = valor desejado / contribuição mensal
+        return valor_desejado // valor_mensal  
 
     meses = 0
     resultado = valor_mensal
 
     while resultado < valor_desejado:
-        resultado += resultado * (taxa_juros / 100)  # Juros mensais
-        resultado += valor_mensal  # Adicionar o valor mensal
+        resultado += resultado * (taxa_juros / 100)  
+        resultado += valor_mensal  
         meses += 1
 
-    return int(meses)  # Converter para inteiro
-
-
-
+    return int(meses) 
 
 def calcular_resultado_sem_taxa(valor_economia, valor_mensal):
     meses = valor_economia / valor_mensal
