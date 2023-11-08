@@ -52,9 +52,6 @@ Os resultados são apresentados aos usuários de forma clara e concisa, exibindo
 - Clique no botão "Calcular" para obter o tempo estimado necessário para atingir sua meta financeira.
 - Os resultados serão exibidos na tela.
 
-## Teste Online
-
-Você também pode testar o aplicativo online [aqui](URL_DO_SEU_APP).
 
 ## Próximos Passos
 
